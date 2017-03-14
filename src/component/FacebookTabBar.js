@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-//react-native link
+//react-native link may resolve most Native Link problems;
 
 const FacebookTabBar = React.createClass({
     tabIcons: [],
