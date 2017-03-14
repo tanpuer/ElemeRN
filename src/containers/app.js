@@ -15,12 +15,16 @@ import FacebookTabBar from '../component/FacebookTabBar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {StackNavigator} from 'react-navigation';
 import MyStatusBar from '../component/MyStatusBar';
+import NewsContainer from '../containers/NewsContainer';
+import FriendsContainer from '../containers/FriendsContainer';
+import ChatContainer from '../containers/ChatContainer';
+import MeContainer from '../containers/MeContainer';
 
 export default class App extends Component{
 
-    componentWillMount(){
+    static navigationOptions = {
 
-    }
+    };
 
     render() {
         return (
@@ -35,31 +39,18 @@ export default class App extends Component{
                     renderTabBar={() => <FacebookTabBar />}
                     tabBarPosition={'bottom'}
                 >
-                    <ScrollView tabLabel="ios-paper" style={styles.tabView}>
-                        <View style={styles.card}>
-                            <Text>News</Text>
-                        </View>
-                    </ScrollView>
-                    <ScrollView tabLabel="ios-people" style={styles.tabView}>
-                        <View style={styles.card}>
-                            <Text>Friends</Text>
-                        </View>
-                    </ScrollView>
-                    <ScrollView tabLabel="ios-chatboxes" style={styles.tabView}>
-                        <View style={styles.card}>
-                            <Text>Messenger</Text>
-                        </View>
-                    </ScrollView>
-                    <ScrollView tabLabel="ios-notifications" style={styles.tabView}>
-                        <View style={styles.card}>
-                            <Text>Notifications</Text>
-                        </View>
-                    </ScrollView>
-                    <ScrollView tabLabel="ios-list" style={styles.tabView}>
-                        <View style={styles.card}>
-                            <Text>Other nav</Text>
-                        </View>
-                    </ScrollView>
+                    <NewsContainer
+                        tabLabel="ios-paper"
+                    />
+                    <FriendsContainer
+                        tabLabel="ios-people"
+                    />
+                    <ChatContainer
+                        tabLabel="ios-chatboxes"
+                    />
+                    <MeContainer
+                        tabLabel="ios-list"
+                    />
                 </ScrollableTabView>
             </View>
         );
