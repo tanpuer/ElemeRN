@@ -19,6 +19,7 @@ import NewsContainer from '../containers/NewsContainer';
 import FriendsContainer from '../containers/FriendsContainer';
 import ChatContainer from '../containers/ChatContainer';
 import MeContainer from '../containers/MeContainer';
+import * as colors from '../constants/ColorTypes';
 
 export default class App extends Component{
 
@@ -30,7 +31,7 @@ export default class App extends Component{
         return (
             <View style={{flex:1}}>
                 <MyStatusBar
-                    backgroundColor="blue"
+                    backgroundColor={colors.MAIN_COLOR}
                     barStyle="light-content"
                 />
                 <ScrollableTabView
@@ -55,4 +56,5 @@ export default class App extends Component{
             </View>
         );
     }
+
 }

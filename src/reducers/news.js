@@ -3,7 +3,8 @@
  */
 import * as types from '../constants/ActionTypes';
 const initialState = {
-    showModal:false,
+    showModal:true,
+    tabs:["头条", "科技", "财经"],
 };
 
 export default function news(state = initialState, action) {

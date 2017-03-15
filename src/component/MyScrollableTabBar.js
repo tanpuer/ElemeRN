@@ -16,6 +16,7 @@ const {
     TouchableOpacity,
 } = ReactNative;
 const MyButton = require('./Button');
+import * as colors from '../constants/ColorTypes';
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
@@ -259,6 +260,6 @@ const styles = StyleSheet.create({
         right:0,
         top:0,
         zIndex:1,
-        backgroundColor:'white',
+        backgroundColor:colors.MAIN_COLOR,
     }
 });

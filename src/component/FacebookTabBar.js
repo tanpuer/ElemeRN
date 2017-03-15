@@ -9,7 +9,7 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import * as colors from '../constants/ColorTypes';
 //react-native link may resolve most Native Link problems;
 
 const FacebookTabBar = React.createClass({
@@ -38,9 +38,9 @@ const FacebookTabBar = React.createClass({
 
     //color between rgb(59,89,152) and rgb(204,204,204)
     iconColor(progress) {
-        const red = 59 + (204 - 59) * progress;
-        const green = 89 + (204 - 89) * progress;
-        const blue = 152 + (204 - 152) * progress;
+        const red = 238 + (204 - 238) * progress;
+        const green = 118 + (204 - 118) * progress;
+        const blue = 0 + (204 - 0) * progress;
         return `rgb(${red}, ${green}, ${blue})`;
     },
 
@@ -51,7 +51,7 @@ const FacebookTabBar = React.createClass({
                     <Icon
                         name={tab}
                         size={30}
-                        color={this.props.activeTab === i ? 'rgb(59,89,152)' : 'rgb(204,204,204)'}
+                        color={this.props.activeTab === i ? colors.MAIN_COLOR : colors.FOUR_UNDER_TABBAR_COLOR}
                         ref={(icon) => { this.tabIcons[i] = icon; }}
                     />
                 </TouchableOpacity>;
