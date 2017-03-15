@@ -34,10 +34,10 @@ export default class App extends Component{
                     barStyle="light-content"
                 />
                 <ScrollableTabView
-                    style={{marginTop: 20, }}
                     initialPage={0}
                     renderTabBar={() => <FacebookTabBar />}
                     tabBarPosition={'bottom'}
+                    locked={true}
                 >
                     <NewsContainer
                         tabLabel="ios-paper"

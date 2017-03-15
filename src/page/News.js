@@ -7,14 +7,22 @@ import {
     Text,
     DeviceEventEmitter,
 } from 'react-native';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import MyScrollableTabBar from '../component/MyScrollableTabBar';
 
 export default class News extends Component{
 
-    render(){
-        return(
-            <Text>
-                News!
-            </Text>
-        );
+    render() {
+        return <ScrollableTabView
+            style={{}}
+            initialPage={0}
+            renderTabBar={() => <MyScrollableTabBar />}
+        >
+            <Text tabLabel='Tab #1'>My</Text>
+            <Text tabLabel='Tab #2'>favorite</Text>
+            <Text tabLabel='Tab #3'>project</Text>
+            <Text tabLabel='Tab #4'>favorite</Text>
+            <Text tabLabel='Tab #5'>project</Text>
+        </ScrollableTabView>;
     }
 }
