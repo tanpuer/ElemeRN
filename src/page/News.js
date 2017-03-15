@@ -9,10 +9,12 @@ import {
     Modal,
     TouchableHighlight,
     TouchableOpacity,
+    StyleSheet,
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import MyScrollableTabBar from '../component/MyScrollableTabBar';
 import * as colors from '../constants/ColorTypes';
+import Channel from '../page/Channel';
 
 export default class News extends Component{
 
@@ -24,20 +26,9 @@ export default class News extends Component{
                     animationType={"slide"}
                     transparent={true}
                     visible={!this.props.news.showModal}
-                    onRequestClose={() => {alert("Modal has been closed.")}}
+                    onRequestClose={() => {this.props.newsActions.showOrHideNewsModal(true)}}
                 >
-                    <View style={{marginTop: 22}}>
-                        <View>
-                            <Text>Hello World!</Text>
-
-                            <TouchableOpacity onPress={() => {
-                                this.props.newsActions.showOrHideNewsModal(true)}}
-                            >
-                                <Text>Hide Modal</Text>
-                            </TouchableOpacity>
-
-                        </View>
-                    </View>
+                    <Channel hideModal={()=>{this.props.newsActions.showOrHideNewsModal(true)}} {...this.props}/>
                 </Modal>
                 <View style={{flex:1}}>
                     <ScrollableTabView
