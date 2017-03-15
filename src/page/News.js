@@ -7,7 +7,8 @@ import {
     Text,
     DeviceEventEmitter,
     Modal,
-    TouchableHighlight
+    TouchableHighlight,
+    TouchableOpacity,
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import MyScrollableTabBar from '../component/MyScrollableTabBar';
@@ -16,6 +17,7 @@ import * as colors from '../constants/ColorTypes';
 export default class News extends Component{
 
     render() {
+        //todo: 挺奇怪的，开了chrome debug Modal就会卡顿住
         return (
             <View style={{flex:1}}>
                 <Modal
@@ -28,11 +30,11 @@ export default class News extends Component{
                         <View>
                             <Text>Hello World!</Text>
 
-                            <TouchableHighlight onPress={() => {
+                            <TouchableOpacity onPress={() => {
                                 this.props.newsActions.showOrHideNewsModal(true)}}
                             >
                                 <Text>Hide Modal</Text>
-                            </TouchableHighlight>
+                            </TouchableOpacity>
 
                         </View>
                     </View>
