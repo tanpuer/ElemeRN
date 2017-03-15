@@ -5,6 +5,7 @@ import React,{Component} from 'react';
 import {
     View,
     Text,
+    DeviceEventEmitter,
 } from 'react-native';
 
 export default class News extends Component{
