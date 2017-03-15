@@ -199,7 +199,7 @@ const ScrollableTabBar = React.createClass({
                         </View>
                     </ScrollView>
                 </View>
-                <TouchableOpacity style={styles.floatingButton} onPress={this.props.showModal?()=>this.props.showModal():()=>{}}>
+                <TouchableOpacity style={styles.floatingButton} onPress={this.props.showModal}>
                     <Image
                         style={{width:20,height:20}}
                         source={require('../img/add.png')}
