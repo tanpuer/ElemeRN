@@ -2,10 +2,10 @@
  * Created by eengoo on 17/3/14.
  */
 import {combineReducers} from 'redux';
-import types from './types';
+import news from './news';
 
 const rootReducer = combineReducers({
-    types,
+    news,
 });
 
 export default rootReducer;

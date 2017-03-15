@@ -12,6 +12,8 @@ const {
     Platform,
     Dimensions,
     Button,
+    Image,
+    TouchableOpacity,
 } = ReactNative;
 const MyButton = require('./Button');
 
@@ -197,13 +199,12 @@ const ScrollableTabBar = React.createClass({
                         </View>
                     </ScrollView>
                 </View>
-                <Button
-                    style={styles.floatingButton}
-                    title={"111"}
-                    color="#841584"
-                    accessibilityLabel="Learn more about this purple button"
-                    onPress={()=>this.props.onPress()}
-                />
+                <TouchableOpacity style={styles.floatingButton} onPress={this.props.showModal?()=>this.props.showModal():()=>{}}>
+                    <Image
+                        style={{width:20,height:20}}
+                        source={require('../img/add.png')}
+                    />
+                </TouchableOpacity>
             </View>
         );
     },
@@ -243,12 +244,7 @@ const styles = StyleSheet.create({
     },
     container: {
         height: 50,
-        borderWidth: 1,
-        borderTopWidth: 0,
-        borderLeftWidth: 0,
-        borderRightWidth: 0,
-        borderColor: '#ccc',
-        width:WINDOW_WIDTH/10*9
+        width:WINDOW_WIDTH*0.9
     },
     tabs: {
         flexDirection: 'row',
@@ -257,5 +253,12 @@ const styles = StyleSheet.create({
     floatingButton: {
         width:WINDOW_WIDTH/10,
         height:50,
+        alignItems:'center',
+        justifyContent:'center',
+        position:'absolute',
+        right:0,
+        top:0,
+        zIndex:1,
+        backgroundColor:'white',
     }
 });
