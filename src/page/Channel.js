@@ -13,6 +13,7 @@ import {
     Dimensions,
     Platform
 } from 'react-native';
+import _ from 'lodash';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 
@@ -29,6 +30,7 @@ export default class Channel extends Component{
             }),
         };
         this.renderRow = this.renderRow.bind(this);
+        this.renderUnSelectedRow = this.renderUnSelectedRow.bind(this);
     }
 
     renderRow(rowData){
@@ -40,11 +42,23 @@ export default class Channel extends Component{
             )
         }else {
             return(
-                <TouchableOpacity style={styles.item}>
+                <TouchableOpacity style={styles.item} onPress={()=>{this.props.newsActions.handleChannels(_.filter(this.props.news.tabs,function(item) {
+                    return item != rowData;
+                }), this.props.news.otherTabs.concat([rowData]))}}>
                     <Text style={styles.text}>{rowData}</Text>
                 </TouchableOpacity>
             );
         }
+    }
+
+    renderUnSelectedRow(rowData){
+        return(
+            <TouchableOpacity style={styles.item} onPress={()=>{this.props.newsActions.handleChannels(this.props.news.tabs.concat([rowData]), _.filter(this.props.news.otherTabs, function(item) {
+                return item != rowData;
+            }))}}>
+                <Text style={styles.text}>{rowData}</Text>
+            </TouchableOpacity>
+        );
     }
 
     render(){
@@ -68,6 +82,7 @@ export default class Channel extends Component{
                     renderRow={this.renderRow}
                     scrollEnabled={false}
                     initialListSize={this.props.news.tabs.length}
+                    enableEmptySections={true}
                 />
 
                 <Text style={styles.sectionTitle}>更多频道，点击关注</Text>
@@ -75,7 +90,7 @@ export default class Channel extends Component{
                 <ListView
                     contentContainerStyle={styles.unSelectedList}
                     dataSource={this.state.unSelectedTabs.cloneWithRows(this.props.news.otherTabs)}
-                    renderRow={this.renderRow}
+                    renderRow={this.renderUnSelectedRow}
                     scrollEnabled={false}
                     initialListSize={this.props.news.otherTabs.length}
                 />

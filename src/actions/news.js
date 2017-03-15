@@ -11,3 +11,13 @@ export function showOrHideNewsModal(show) {
         });
     }
 }
+
+export function handleChannels(tabs, otherTabs) {
+    return (dispatch, getState)=>{
+        dispatch({
+            type:types.HANDLE_CHANNEL,
+            tabs:tabs,
+            otherTabs:otherTabs,
+        });
+    }
+}
