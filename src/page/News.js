@@ -15,11 +15,6 @@ import * as colors from '../constants/ColorTypes';
 
 export default class News extends Component{
 
-
-    showModal(){
-        this.props.newsActions.showOrHideNewsModal(false);
-    }
-
     render() {
         return (
             <View style={{flex:1}}>
@@ -54,11 +49,12 @@ export default class News extends Component{
                         tabBarInactiveTextColor={colors.MAIN_TEXT_COLOR}
                         tabBarUnderlineStyle={{backgroundColor:colors.MAIN_TEXT_COLOR}}
                     >
-                        <Text tabLabel='Tab #1'>My</Text>
-                        <Text tabLabel='Tab #2'>favorite</Text>
-                        <Text tabLabel='Tab #3'>project</Text>
-                        <Text tabLabel='Tab #4'>favorite</Text>
-                        <Text tabLabel='Tab #5'>project</Text>
+
+                        {this.props.news.tabs.map((tab,i)=>{
+                            return(
+                                <Text tabLabel={tab} key={i}>{tab}</Text>
+                            );
+                        })}
                     </ScrollableTabView>
                 </View>
             </View>
