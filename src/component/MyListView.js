@@ -10,6 +10,7 @@ import {
     View,
 } from 'react-native';
 import * as colors from '../constants/ColorTypes';
+import LoadMoreView from '../component/LoadMoreView';
 
 export default class MyListView extends Component{
 
@@ -31,9 +32,7 @@ export default class MyListView extends Component{
     renderRow(rowData){
         if (rowData === "loadMore"){
             return(
-                <View style={styles.loadMoreContainer}>
-                    <Text style={{height:40}}>{"正在加载更多。。。"}</Text>
-                </View>
+                <LoadMoreView/>
             )
         }else {
             return(
@@ -98,7 +97,7 @@ export default class MyListView extends Component{
                         colors={[colors.REFRESH_COLOR]}
                     />
                 }
-                onEndReachedThreshold={100}//如果是0 android会有问题。
+                onEndReachedThreshold={200}//如果是0 android会有问题。
                 >
             </ListView>
         );
@@ -106,9 +105,5 @@ export default class MyListView extends Component{
 }
 
 const styles = StyleSheet.create({
-    loadMoreContainer:{
-        height:40,
-        justifyContent:'center',
-        alignItems:'center',
-    }
+
 });
