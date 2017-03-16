@@ -15,6 +15,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import MyScrollableTabBar from '../component/MyScrollableTabBar';
 import * as colors from '../constants/ColorTypes';
 import Channel from '../page/Channel';
+import MyListView from '../component/MyListView';
 
 export default class News extends Component{
 
@@ -45,7 +46,11 @@ export default class News extends Component{
 
                         {this.props.news.tabs.map((tab,i)=>{
                             return(
-                                <Text tabLabel={tab} key={i}>{tab}</Text>
+                                <MyListView
+                                    tabLabel={tab}
+                                    key={i}
+                                    title={tab}
+                                />
                             );
                         })}
                     </ScrollableTabView>
