@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import _ from 'lodash';
 const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 
 export default class Channel extends Component{
@@ -104,8 +105,8 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor:'white',
         ...Platform.select({
-            ios:{marginTop:20,},
-            android:{},
+            ios:{marginTop:20,height:SCREEN_HEIGHT-20-50},
+            android:{height:SCREEN_HEIGHT-20-50},
         }),
     },
     title:{
