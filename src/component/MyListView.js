@@ -64,7 +64,7 @@ export default class MyListView extends Component{
                     data: this.state.data.concat(arr),
                     isLoadingMore:true,
                 });
-            },2000)
+            },4000)
         }
     }
 
