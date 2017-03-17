@@ -121,7 +121,6 @@ export default class MyListView extends Component{
                     style={styles.imageButton}
                     source={require('../img/arrowUp.png')}
                 />
-                <FloatingButton/>
             </View>
         );
     }
