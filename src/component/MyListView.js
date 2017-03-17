@@ -14,6 +14,7 @@ import {
 import * as colors from '../constants/ColorTypes';
 import LoadMoreView from '../component/LoadMoreView';
 import ImageButton from '../component/ImageButton';
+import FloatingButton from '../component/FloatingButton';
 
 export default class MyListView extends Component{
 
@@ -120,6 +121,7 @@ export default class MyListView extends Component{
                     style={styles.imageButton}
                     source={require('../img/arrowUp.png')}
                 />
+                <FloatingButton/>
             </View>
         );
     }
