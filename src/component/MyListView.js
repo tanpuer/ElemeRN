@@ -8,9 +8,12 @@ import {
     Text,
     StyleSheet,
     View,
+    TouchableOpacity,
+    Image,
 } from 'react-native';
 import * as colors from '../constants/ColorTypes';
 import LoadMoreView from '../component/LoadMoreView';
+import ImageButton from '../component/ImageButton';
 
 export default class MyListView extends Component{
 
@@ -81,13 +84,23 @@ export default class MyListView extends Component{
         },2000);
     }
 
+    onScroll(e){
+        console.log("onScroll", e.nativeEvent.contentOffset.y);
+    }
+
+    scrollToTop(){
+        this.refs.listView.scrollTo({x:0, y:0});
+    }
+
     render(){
         return(
-            <ListView
-                renderRow = {this.renderRow}
-                dataSource={this.state.dataSource.cloneWithRows(this.state.data)}
-                onEndReached={this.onEndReached}
-                refreshControl={
+            <View>
+                <ListView
+                    ref="listView"
+                    renderRow = {this.renderRow}
+                    dataSource={this.state.dataSource.cloneWithRows(this.state.data)}
+                    onEndReached={this.onEndReached}
+                    refreshControl={
                     <RefreshControl
                         refreshing={this.state.refresh}
                         onRefresh={this.onRefresh}
@@ -97,13 +110,33 @@ export default class MyListView extends Component{
                         colors={[colors.REFRESH_COLOR]}
                     />
                 }
-                onEndReachedThreshold={200}//如果是0 android会有问题。
+                    onEndReachedThreshold={200}//如果是0 android会有问题。
+                    onScroll={(e)=>this.onScroll(e)}
                 >
-            </ListView>
+                </ListView>
+                <ImageButton
+                    containerStyle={styles.imageButtonContainer}
+                    onPress={()=>{this.scrollToTop()}}
+                    style={styles.imageButton}
+                    source={require('../img/arrowUp.png')}
+                />
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-
+    imageButtonContainer:{
+        position:'absolute',
+        right:20,
+        bottom:20,
+        // shadowOffset:{width:0, height:0.5},
+        // shadowOpacity:0.5,
+        // elevation:4,
+        // shadowColor:'black',
+    },
+    imageButton:{
+        width:50,
+        height:50,
+    },
 });
