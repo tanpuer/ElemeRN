@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
     },
     tabs: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        // justifyContent: 'space-around',
     },
     floatingButton: {
         width:WINDOW_WIDTH/10,
