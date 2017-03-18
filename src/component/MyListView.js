@@ -14,7 +14,7 @@ import {
 import * as colors from '../constants/ColorTypes';
 import LoadMoreView from '../component/LoadMoreView';
 import ImageButton from '../component/ImageButton';
-import FloatingButton from '../component/FloatingButton';
+import * as callApis from '../api/fetchNewsData';
 
 export default class MyListView extends Component{
 
@@ -45,12 +45,21 @@ export default class MyListView extends Component{
         }
     }
 
+    componentWillMount(){
+        const api = this.props.title.api;
+        this.fetchData(api);
+    }
+
+    fetchData(api, num=10){
+        callApis.getNews(api,num).then((res)=>console.log("111111", res));
+    }
+
     mockData(){
         const {title} = this.props;
         let arr = [];
         for (let i=0; i<10;i++){
             let randomNum = Math.floor(Math.random()*100);
-            arr.push(title + randomNum);
+            arr.push(title.name + randomNum);
         }
         return arr;
     }

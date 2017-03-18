@@ -4,9 +4,27 @@
 import * as types from '../constants/ActionTypes';
 const initialState = {
     showModal: true,
-    tabs: ["头条", "科技", "财经", "军事", "体育"],
-    otherTabs: ["房产", "足球", "娱乐", "电影", "汽车", "笑话", "游戏", "时尚", "情感", "精选", "电台", "NBA", "数码", "移动", "彩票", "教育", "论坛", "旅游", "手机", "博客", "社会", "家居", "暴雪", "亲子", "CBA", "消息"],
-}
+    tabs: [{name:"微信精选", api:'wxnew', detail:''}],
+    otherTabs: [
+        {name:"社会新闻", api:'social', detail:''},
+        {name:"国内新闻", api:'guonei', detail:''},
+        {name:"国际新闻", api:'world', detail:''},
+        {name:"娱乐新闻", api:'huabian', detail:''},
+        {name:"体育新闻", api:'tiyu', detail:''},
+        {name:"NBA新闻", api:'nba', detail:''},
+        {name:"足球新闻", api:'football', detail:''},
+        {name:"科技新闻", api:'keji', detail:''},
+        {name:"创业新闻", api:'startup', detail:''},
+        {name:"苹果新闻", api:'apple', detail:''},
+        {name:"移动互联", api:'mobile', detail:''},
+        {name:"旅游资讯", api:'travel', detail:''},
+        {name:"健康知识", api:'health', detail:''},
+        {name:"奇闻异事", api:'qiwen', detail:''},
+        {name:"美女图片", api:'meinv', detail:''},
+        {name:"VR科技", api:'vr', detail:''},
+        {name:"IT资讯", api:'it', detail:''},
+    ],
+};
 
 export default function news(state = initialState, action) {
 

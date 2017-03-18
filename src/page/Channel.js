@@ -35,10 +35,10 @@ export default class Channel extends Component{
     }
 
     renderRow(rowData){
-        if (rowData == "头条"){
+        if (rowData.name == "微信精选"){
             return(
                 <View style={styles.item}>
-                    <Text style={[styles.text,{color:'#FFFFFF'}]}>{rowData}</Text>
+                    <Text style={[styles.text,{color:'#FFFFFF'}]}>{rowData.name}</Text>
                 </View>
             )
         }else {
@@ -46,7 +46,7 @@ export default class Channel extends Component{
                 <TouchableOpacity style={styles.item} onPress={()=>{this.props.newsActions.handleChannels(_.filter(this.props.news.tabs,function(item) {
                     return item != rowData;
                 }), this.props.news.otherTabs.concat([rowData]))}}>
-                    <Text style={styles.text}>{rowData}</Text>
+                    <Text style={styles.text}>{rowData.name}</Text>
                 </TouchableOpacity>
             );
         }
@@ -57,7 +57,7 @@ export default class Channel extends Component{
             <TouchableOpacity style={styles.item} onPress={()=>{this.props.newsActions.handleChannels(this.props.news.tabs.concat([rowData]), _.filter(this.props.news.otherTabs, function(item) {
                 return item != rowData;
             }))}}>
-                <Text style={styles.text}>{rowData}</Text>
+                <Text style={styles.text}>{rowData.name}</Text>
             </TouchableOpacity>
         );
     }
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     },
     text:{
         textAlign:'center',
-        fontSize:16,
+        fontSize:12,
     },
     sectionTitle:{
         fontSize:16,

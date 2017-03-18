@@ -47,7 +47,7 @@ export default class News extends Component{
                         {this.props.news.tabs.map((tab,i)=>{
                             return(
                                 <MyListView
-                                    tabLabel={tab}
+                                    tabLabel={tab.name}
                                     key={i}
                                     title={tab}
                                 />
