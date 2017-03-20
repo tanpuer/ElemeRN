@@ -140,13 +140,14 @@ const styles = StyleSheet.create({
         position:'absolute',
         right:20,
         bottom:20,
-        // shadowOffset:{width:0, height:0.5},
-        // shadowOpacity:0.5,
-        // elevation:4,
-        // shadowColor:'black',
+        shadowOffset:{width:0, height:0.5},
+        shadowOpacity:0.5,
+        elevation:4,
+        shadowColor:'black',
+        // opacity:0.2
     },
     imageButton:{
-        width:50,
-        height:50,
+        width:40,
+        height:40,
     },
 });
