@@ -31,8 +31,10 @@ export default function news(state = initialState, action) {
     switch (action.type){
         case types.SHOW_OR_HIDE_NEWS_MODAL:
             return Object.assign({},state, {showModal: action.showModal});
+            break;
         case types.HANDLE_CHANNEL:{
             return Object.assign({},state, action);
+            break;
         }
         default:
             return state;

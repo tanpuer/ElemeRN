@@ -124,12 +124,6 @@ export default class MyListView extends Component{
                     onScroll={(e)=>this.onScroll(e)}
                 >
                 </ListView>
-                <ImageButton
-                    containerStyle={styles.imageButtonContainer}
-                    onPress={()=>{this.scrollToTop()}}
-                    style={styles.imageButton}
-                    source={require('../img/arrowUp.png')}
-                />
             </View>
         );
     }
