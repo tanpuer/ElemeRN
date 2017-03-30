@@ -21,6 +21,7 @@ export default function login(state = initialState, action) {
             break;
         }
         default:
+            return state;
             break;
     }
 }

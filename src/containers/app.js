@@ -20,6 +20,7 @@ import FriendsContainer from '../containers/FriendsContainer';
 import ChatContainer from '../containers/ChatContainer';
 import MeContainer from '../containers/MeContainer';
 import * as colors from '../constants/ColorTypes';
+import LoginContainer from '../containers/LoginContainer';
 
 export default class App extends Component{
 
@@ -29,31 +30,32 @@ export default class App extends Component{
 
     render() {
         return (
-            <View style={{flex:1}}>
-                <MyStatusBar
-                    backgroundColor={colors.MAIN_COLOR}
-                    barStyle="light-content"
-                />
-                <ScrollableTabView
-                    initialPage={0}
-                    renderTabBar={() => <FacebookTabBar />}
-                    tabBarPosition={'bottom'}
-                    locked={true}
-                >
-                    <NewsContainer
-                        tabLabel="ios-paper"
-                    />
-                    <FriendsContainer
-                        tabLabel="ios-people"
-                    />
-                    <ChatContainer
-                        tabLabel="ios-chatboxes"
-                    />
-                    <MeContainer
-                        tabLabel="ios-list"
-                    />
-                </ScrollableTabView>
-            </View>
+            // <View style={{flex:1}}>
+            //     <MyStatusBar
+            //         backgroundColor={colors.MAIN_COLOR}
+            //         barStyle="light-content"
+            //     />
+            //     <ScrollableTabView
+            //         initialPage={0}
+            //         renderTabBar={() => <FacebookTabBar />}
+            //         tabBarPosition={'bottom'}
+            //         locked={true}
+            //     >
+            //         <NewsContainer
+            //             tabLabel="ios-paper"
+            //         />
+            //         <FriendsContainer
+            //             tabLabel="ios-people"
+            //         />
+            //         <ChatContainer
+            //             tabLabel="ios-chatboxes"
+            //         />
+            //         <MeContainer
+            //             tabLabel="ios-list"
+            //         />
+            //     </ScrollableTabView>
+            // </View>
+            <LoginContainer/>
         );
     }
 
