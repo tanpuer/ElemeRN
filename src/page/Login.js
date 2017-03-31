@@ -11,6 +11,7 @@ import {
     Keyboard,
     StyleSheet,
     Dimensions,
+    Text,
     Button,
 } from 'react-native';
 import * as colors from '../constants/ColorTypes';
@@ -99,7 +100,8 @@ const styles = StyleSheet.create({
         height:50,
         marginTop:20,
         backgroundColor:'white'
-    }
+    },
+    registryAnd
 
 });
 
