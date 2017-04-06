@@ -24,7 +24,9 @@ export default class App extends Component{
 
                 //可选,配置页面切换动画和手势
                 configureScene={(route,routeStack) => {
-                    return Navigator.SceneConfigs.HorizontalSwipeJumpFromLeft;
+                    //暂时把手势禁掉
+                    //等待react-navigation稳定了就换。。。
+                    return Object.assign({},Navigator.SceneConfigs.HorizontalSwipeJumpFromLeft,{gestures:{}});
                 }}
 
                 //必选,渲染每一个路由指定的页面
