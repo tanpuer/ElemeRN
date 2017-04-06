@@ -2,10 +2,11 @@
  * Created by cw on 2017/3/30.
  */
 import * as types from '../constants/ActionTypes';
+import _ from 'lodash';
 
 export function login(id, password) {
     return(dispatch,getState)=>{
-        if (id==null || password==null){
+        if (_.isNull(id) || _.isNull(password)){
             dispatch({
                 types:types.LOGIN_NULL
             });

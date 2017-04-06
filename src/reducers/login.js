@@ -20,6 +20,10 @@ export default function login(state = initialState, action) {
             return Object.assign({}, state, {login_status:2});
             break;
         }
+        case types.LOGIN_NULL:{
+            return state;
+            break;
+        }
         default:
             return state;
             break;
