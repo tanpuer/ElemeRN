@@ -7,6 +7,7 @@ import {
     Platform,
     View,
 } from 'react-native';
+import * as colors from '../constants/ColorTypes';
 
 
 //ios don't have a concept of statusbar background
@@ -28,5 +29,5 @@ export default class MyStatusBar extends Component{
 
 MyStatusBar.defaultProps = {
     height:20,
-    backgroundColor:'blue'
+    backgroundColor:colors.MAIN_COLOR,
 };

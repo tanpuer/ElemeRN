@@ -9,11 +9,11 @@ import {
     View,
     ScrollView,
     StatusBar,
+    Navigator,
 } from 'react-native';
 
 import FacebookTabBar from '../component/FacebookTabBar';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import {StackNavigator} from 'react-navigation';
 import MyStatusBar from '../component/MyStatusBar';
 import NewsContainer from '../containers/NewsContainer';
 import FriendsContainer from '../containers/FriendsContainer';
@@ -24,9 +24,6 @@ import LoginContainer from '../containers/LoginContainer';
 
 export default class App extends Component{
 
-    static navigationOptions = {
-
-    };
 
     render() {
         return (
@@ -55,7 +52,22 @@ export default class App extends Component{
             //         />
             //     </ScrollableTabView>
             // </View>
-            <LoginContainer/>
+
+            //目前暂时用rn提供的Navigator，React-Navigation bug太多，不敢用。。。
+            <Navigator
+                initialRoute={{ name: 'LoginContainer', component: LoginContainer }}
+
+                //可选,配置页面切换动画和手势
+                configureScene={(route,routeStack) => {
+                    return Navigator.SceneConfigs.HorizontalSwipeJumpFromLeft;
+                }}
+
+                //必选,渲染每一个路由指定的页面
+                renderScene={(route, navigator) => {
+                    let Component = route.component;
+                    //传值要加{...route.passProps},不然页面跳转传值失败
+                    return <Component {...route.passProps} route={route} navigator={navigator} />
+                }}/>
         );
     }
 

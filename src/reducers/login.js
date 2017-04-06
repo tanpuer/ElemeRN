@@ -3,21 +3,21 @@
  */
 import * as types from '../constants/ActionTypes';
 const initialState = {
-
+    login_status:-1,
 };
 
 export default function login(state = initialState, action) {
     switch (action.type){
-        case types.LOGIN_NULL:{
-            return Object.assign({}, state, {login:null});
+        case types.IS_LOGIN:{
+            return Object.assign({}, state, {login_status:0});
             break;
         }
         case types.LOGIN_SUCCESS:{
-            return Object.assign({}, state, {login:true});
+            return Object.assign({}, state, {login_status:1});
             break;
         }
         case types.LOGIN_FAILED:{
-            return Object.assign({}, state, {login:false});
+            return Object.assign({}, state, {login_status:2});
             break;
         }
         default:
