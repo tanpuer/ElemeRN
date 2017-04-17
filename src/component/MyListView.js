@@ -10,6 +10,7 @@ import {
     View,
     TouchableOpacity,
     Image,
+    FlatList,
 } from 'react-native';
 import * as colors from '../constants/ColorTypes';
 import LoadMoreView from '../component/LoadMoreView';
