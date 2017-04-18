@@ -12,7 +12,7 @@ export default class Friends extends Component{
 
     render(){
         return(
-            <MyFlatList title={this.props.friends}/>
+            <MyFlatList {...this.props}/>
         );
     }
 }

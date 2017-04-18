@@ -6,6 +6,7 @@ import {
     FlatList,
     StyleSheet,
     Text,
+    View,
 } from 'react-native';
 
 const LIST_ITEM_HEIGHT = 60;
@@ -24,7 +25,7 @@ class MyFlatList extends Component{
 
     mockData(){
         var arr = [];
-        const {title} = this.props;
+        const {title} = this.props.friends;
         for (let i=0; i<10; i++){
             let randomNum = Math.floor(Math.random() *100);
             arr.push(title + randomNum);
@@ -40,6 +41,19 @@ class MyFlatList extends Component{
         )
     };
 
+    keyExtractor = ({item})=>{
+        return item;
+    };
+
+    itemSeparatorComponent = ()=>{
+        return(
+            <View
+                style={styles.separator}
+            >
+            </View>
+        );
+    };
+
     render(){
         return(
             <FlatList
@@ -49,6 +63,8 @@ class MyFlatList extends Component{
                 getItemLayout={(data,index)=>(
                     {length:LIST_ITEM_HEIGHT, offset:LIST_ITEM_HEIGHT * index, index}
                 )}
+                keyExtractor={this.keyExtractor}
+                ItemSeparatorComponent={this.itemSeparatorComponent}
             />
         );
     }
@@ -64,6 +80,10 @@ const styles = StyleSheet.create({
         height:LIST_ITEM_HEIGHT,
         textAlign:'center',
         fontSize:20,
+    },
+    separator:{
+        height:10,
+        backgroundColor:'gray',
     }
 });
 
