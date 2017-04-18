@@ -12,6 +12,7 @@ import {
 
 
 import LoginContainer from '../containers/LoginContainer';
+import HomePage from '../containers/homePage';
 
 export default class App extends Component{
 
@@ -20,7 +21,8 @@ export default class App extends Component{
         return (
             //目前暂时用rn提供的Navigator，React-Navigation bug太多，不敢用。。。
             <Navigator
-                initialRoute={{ name: 'LoginContainer', component: LoginContainer }}
+                initialRoute={{ name: 'HomePageContainer', component: HomePage}}
+                //initialRoute={{ name: 'LoginContainer', component: LoginContainer}}
 
                 //可选,配置页面切换动画和手势
                 configureScene={(route,routeStack) => {

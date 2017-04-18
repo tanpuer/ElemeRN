@@ -233,7 +233,6 @@ const ScrollableTabBar = React.createClass({
     },
 });
 
-module.exports = ScrollableTabBar;
 
 const styles = StyleSheet.create({
     tab: {
@@ -245,21 +244,20 @@ const styles = StyleSheet.create({
     },
     container: {
         height: 50,
-        width:WINDOW_WIDTH*0.9
+        flex:9,
     },
     tabs: {
         flexDirection: 'row',
         // justifyContent: 'space-around',
     },
     floatingButton: {
-        width:WINDOW_WIDTH/10,
+        flex:1,
         height:50,
         alignItems:'center',
         justifyContent:'center',
-        position:'absolute',
-        right:0,
-        top:0,
-        zIndex:1,
+        // zIndex:1, android上有问题
         backgroundColor:colors.MAIN_COLOR,
     }
 });
+
+module.exports = ScrollableTabBar;

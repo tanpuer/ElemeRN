@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import * as colors from '../constants/ColorTypes';
 import LoadMoreView from '../component/LoadMoreView';
-import ImageButton from '../component/ImageButton';
 import * as callApis from '../api/fetchNewsData';
 
 export default class MyListView extends Component{
@@ -51,8 +50,12 @@ export default class MyListView extends Component{
         this.fetchData(api);
     }
 
+    componentWillReceiveProps(nextProps) {
+
+    }
+
     fetchData(api, num=10){
-        callApis.getNews(api,num).then((res)=>console.log("111111", res));
+        // callApis.getNews(api,num).then((res)=>console.log("111111", res));
     }
 
     mockData(){
@@ -100,14 +103,14 @@ export default class MyListView extends Component{
     }
 
     scrollToTop(){
-        this.refs.listView.scrollTo({x:0, y:0});
+        this.refs.flatList.scrollTo({x:0, y:0});
     }
 
     render(){
         return(
             <View>
                 <ListView
-                    ref="listView"
+                    ref="flatList"
                     renderRow = {this.renderRow}
                     dataSource={this.state.dataSource.cloneWithRows(this.state.data)}
                     onEndReached={this.onEndReached}
@@ -122,7 +125,7 @@ export default class MyListView extends Component{
                     />
                 }
                     onEndReachedThreshold={200}//如果是0 android会有问题。
-                    onScroll={(e)=>this.onScroll(e)}
+                    initialListSize={10}
                 >
                 </ListView>
             </View>
