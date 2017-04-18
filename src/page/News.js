@@ -20,7 +20,6 @@ import MyListView from '../component/MyListView';
 export default class News extends Component{
 
     render() {
-        //todo: 挺奇怪的，开了chrome debug Modal就会卡顿住
         return (
             <View style={{flex:1}}>
                 <Modal

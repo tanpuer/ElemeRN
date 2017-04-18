@@ -6,14 +6,13 @@ import {
     View,
     Text,
 } from 'react-native';
+import MyFlatList from '../component/MyFlatList';
 
-export default class News extends Component{
+export default class Friends extends Component{
 
     render(){
         return(
-            <Text>
-                Friends!
-            </Text>
+            <MyFlatList title={this.props.friends}/>
         );
     }
 }
