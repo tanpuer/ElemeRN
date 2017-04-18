@@ -10,19 +10,15 @@ export default function login(state = initialState, action) {
     switch (action.type){
         case types.IS_LOGIN:{
             return Object.assign({}, state, {login_status:0});
-            break;
         }
         case types.LOGIN_SUCCESS:{
             return Object.assign({}, state, {login_status:1});
-            break;
         }
         case types.LOGIN_FAILED:{
             return Object.assign({}, state, {login_status:2});
-            break;
         }
         case types.LOGIN_NULL:{
             return state;
-            break;
         }
         default:
             return state;

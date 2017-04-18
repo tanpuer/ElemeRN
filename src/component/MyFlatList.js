@@ -24,13 +24,17 @@ class MyFlatList extends Component{
     }
 
     mockData(){
-        var arr = [];
-        const {title} = this.props.friends;
-        for (let i=0; i<10; i++){
-            let randomNum = Math.floor(Math.random() *100);
-            arr.push(title + randomNum);
+        var arr = this.props.friends.data;
+        if (arr && arr.length){
+            return;
+        }else {
+            const {title} = this.props.friends;
+            for (let i=0; i<10; i++){
+                let randomNum = Math.floor(Math.random() *100);
+                arr.push(title + randomNum);
+            }
+            this.props.friendActions.saveData(arr);
         }
-        return arr;
     }
 
     renderItem = ({item})=>{
@@ -54,10 +58,15 @@ class MyFlatList extends Component{
         );
     };
 
+    onEndReached = ()=>{
+        this.props.friendsActions.loadMore(this.props.friends.title);
+    };
+
     render(){
+        const {data} = this.props.friends.data;
         return(
             <FlatList
-                data={this.state.data}
+                data={data}
                 debug={false}
                 renderItem= {this.renderItem}
                 getItemLayout={(data,index)=>(
@@ -65,6 +74,7 @@ class MyFlatList extends Component{
                 )}
                 keyExtractor={this.keyExtractor}
                 ItemSeparatorComponent={this.itemSeparatorComponent}
+                onEndReached={this.onEndReached}
             />
         );
     }
